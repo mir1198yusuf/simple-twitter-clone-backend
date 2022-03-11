@@ -93,7 +93,7 @@ const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     req.user = { id: decoded.userId }
     return next()
   } catch (error) {
-    res.status(500).json({ error: 'Error' })
+    res.status(500).json({ error: 'Error 😒' })
     return
   }
 }
@@ -113,7 +113,7 @@ app.post('/signup', async (req: Request, res: Response) => {
     return
   } catch (error) {
     await trx.rollback()
-    res.status(500).json({ error: 'Error' })
+    res.status(500).json({ error: 'Error 😒' })
     return
   }
 })
@@ -141,7 +141,7 @@ app.post('/signin', async (req: Request, res: Response) => {
     return
   } catch (error) {
     await trx.rollback()
-    res.status(500).json({ error: 'Error' })
+    res.status(500).json({ error: 'Error 😒' })
     return
   }
 })
@@ -157,7 +157,7 @@ app.get('/users/:userId', checkJwt, async (req: Request, res: Response) => {
     return
   } catch (error) {
     await trx.rollback()
-    res.status(500).json({ error: 'Error' })
+    res.status(500).json({ error: 'Error 😒' })
     return
   }
 })
@@ -177,7 +177,7 @@ app.post(
       return
     } catch (error) {
       await trx.rollback()
-      res.status(500).json({ error: 'Error' })
+      res.status(500).json({ error: 'Error 😒' })
       return
     }
   }
@@ -195,7 +195,7 @@ app.get('/tweets', checkJwt, async (req: Request, res: Response) => {
     return
   } catch (error) {
     await trx.rollback()
-    res.status(500).json({ error: 'Error' })
+    res.status(500).json({ error: 'Error 😒' })
     return
   }
 })
@@ -212,7 +212,7 @@ app.post('/tweets', checkJwt, async (req: Request, res: Response) => {
     return
   } catch (error) {
     await trx.rollback()
-    res.status(500).json({ error: 'Error' })
+    res.status(500).json({ error: 'Error 😒' })
     return
   }
 })

@@ -24,20 +24,23 @@ This is a pre-requisite assignment (backend part) to be completed before startin
 ### Database schema design
 
 User
--id PK
--handle UK
--name
--email UK Index
--password
+
+- id PK
+- handle UK
+- name
+- email UK Index
+- password
 
 Tweet
--id PK
--text
--tweetedBy FK (user.id)
--tweetedAt
+
+- id PK
+- text
+- tweetedBy FK (user.id)
+- tweetedAt
 
 Follower
--id PK
--followTo FK (user.id)
--followBy FK (user.id) Index
--followAt
+
+- id PK
+- followTo FK (user.id)
+- followBy FK (user.id) Index
+- followAt
