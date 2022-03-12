@@ -162,6 +162,27 @@ app.get('/users/:userId', checkJwt, async (req: Request, res: Response) => {
   }
 })
 
+// get followed users by me
+app.get(
+  '/users/:userId/followers',
+  checkJwt,
+  async (req: Request, res: Response) => {
+    const trx = await Model.startTransaction()
+    try {
+      const followers = await FollowerModel.query(trx)
+        .select('*')
+        .where('followBy', req.user.id)
+      await trx.commit()
+      res.status(200).json({ followers })
+      return
+    } catch (error) {
+      await trx.rollback()
+      res.status(500).json({ error: 'Error 😒' })
+      return
+    }
+  }
+)
+
 app.post(
   '/users/:userId/followers',
   checkJwt,

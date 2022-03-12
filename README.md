@@ -20,6 +20,7 @@ This is a pre-requisite assignment (backend part) to be completed before startin
 - get tweets : get /tweets
 - create tweet : post /tweets
 - follow user : post /users/:userId/followers
+- get followed users by me : get /users/:userId/followers
 
 ### Database schema design
 
