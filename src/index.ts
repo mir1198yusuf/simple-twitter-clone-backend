@@ -136,7 +136,8 @@ app.post('/signin', async (req: Request, res: Response) => {
           iat: Date.now() // jwt issued at
         },
         process.env.JWT_SECRET_KEY as string
-      )
+      ),
+      userId: user[0].id
     })
     return
   } catch (error) {
